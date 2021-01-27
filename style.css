@@ -1,0 +1,531 @@
+/*
+Theme Name: EbbinTheme
+Text Domain: EbbinTheme
+Version: 1.0
+Description: Nice top navbar theme
+Tags: top-navbar
+Author: Austin Houck
+Author URI: https://www.github.com/akh4rf
+*/
+
+/* Base Settings */
+
+/* HTML Tag */
+html {
+    /* Includes padding & border in width/height */
+    box-sizing: border-box;
+}
+
+/* Body Tag */
+body {
+  /* Sets font family of document */
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  /* Eliminates weird whitespace */
+  font-size: 0;
+}
+
+/* Nav Tag */
+nav {
+  /* Allows setting dimensions, but no inline.    */
+  /* This is OK because only 1 bar in nav object. */
+  display: block;
+}
+
+/* Anchor Tag */
+a {
+  /* Turn cursor into pointer */
+  cursor: pointer;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: inherit;
+  line-height: 1.1;
+  text-transform: inherit;
+  text-align: inherit;
+}
+
+h1 {font-size: 36px;}
+h2 {font-size: 24px;}
+h3 {font-size: 18px;}
+h4 {font-size: 16px;}
+h5 {font-size: 15px;}
+h6 {font-size: 14px;}
+p {font-size: 12px;}
+
+html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+    /* Initial margin/padding of all of these elements is 0 */
+    margin: 0;
+    padding: 0;
+}
+
+img {width: 100%;}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+
+
+/* OBJECT CLASSES */
+
+/* Top Navbar */
+  /* Section of the navbar where 1/2 of buttons go */
+.navbar-buttons {
+  width: 80%;
+  float: left; }
+  @media screen and (max-width: 909px) {
+  .navbar-buttons {
+    width: 100%;
+    display: none; }}
+  .navbar-buttons.show-nav {
+    display: block;
+    margin-bottom: 20px;
+}
+  /* Section of the navbar where logo goes */
+.navbar-logo {
+  height: 100%;
+  width: 20%;
+  padding: 28px 0px;
+  float: left;
+
+  font-size: 15px;
+  text-align: center;
+  line-height: 1.1;
+}
+
+  /* Navbar Buttons */
+.nav-btn-main {
+  height: 100%;
+  width: calc(100%/6);
+  display: inline-block;
+  position: relative; }
+  /* Nav dropdowns hidden by default */
+  .nav-btn-main ul {display: none;}
+  @media screen and (max-width: 909px) {
+    .nav-btn-main {width: 100%;}
+  }
+  /* Nav dropdowns shown when hovered over */
+  @media screen and (min-width: 910px) {
+    .nav-btn-main:hover ul {
+      width: 100%;
+
+      margin-top: 71px;
+      left: 0;
+      z-index: 999;
+
+      display: inline-block;
+      position: absolute; }
+}
+  /* Makes buttons clickable */
+a.main-click, a.drop-click {
+  height: 100%;
+  width: 100%;
+  padding: 28px 1vw;
+
+  font-size: 15px;
+  letter-spacing: 0.1vw;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+  font-weight: 900;
+
+  background: #84152D;
+  color: #FFD200;
+
+  display: inline-block;}
+a.drop-click {background: #691024 !important;}
+a.main-click {font-size: 25px;padding: 23px 1vw;line-height: 1;}
+  a.main-click * {display: inline-block;}
+  a.main-click h5 {
+    padding: 5px 0;
+    font-size: 15px;line-height: 1;vertical-align: top;
+  }
+  li.nav-btn-main .fa-angle-right {
+    margin-left: 5px;
+    line-height: 1;
+    vertical-align: top;
+    -moz-transition: all .25s linear;
+    -webkit-transition: all .25s linear;
+    transition: all .25s linear;
+  }
+@media screen and (min-width: 910px) {
+  .nav-btn-main:hover .fa-angle-right {
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+}
+  /* Class for right arrow that has been rotated */
+.rotated-arrow {
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+  /* Changes color of buttons when hovered over */
+a.main-click:hover,
+a.drop-click:hover {
+  background: #FFD200 !important;
+  color: #84152D !important;
+}
+  /* Buttons within nav dropdowns */
+.nav-btn-drop {
+  width: 100%;
+  /* We want this display setting for the legislation dropdown */
+  display: inline-block;
+}
+  /* Nav dropdowns on mobile when clicked */
+.show-drop {
+  height: 300% !important; }
+  #newsMenu.show-drop {
+    height: 400% !important; }
+  #legisMenu.show-drop {
+    height: 600% !important; }
+  .show-drop ul {
+    position: relative;
+    left: 0;
+    display: inline-block;
+    width: 100%; }
+    .show-drop ul li {
+      width: 100%; }
+    #legisMenu.show-drop ul li {
+      width: 50% !important; }
+  /* Top Menu Button */
+.menu-button-wrapper {
+  display: none;
+  height: 100%;
+  width: 40%;
+  position: relative;
+  float: right;
+  cursor: pointer; }
+  @media screen and (max-width: 909px) {
+    .menu-button-wrapper {
+      display: inline-block; }}
+  #menu-wrapper {width: 100px; margin-right: 20px; float: right;}
+    /* Menu button text */
+    .menu-button-wrapper h5 {
+      width: 65px;
+      display: inline-block;
+      font-size: 15px;
+      padding: 28px 10px 28px 0vw;
+      color: #FFD200;
+      text-align: center;
+      font-weight: 900;}
+    /* Menu button image */
+    .menu-button {
+      position: absolute;
+      display: inline-block;
+      padding-top: 22px;
+      padding-bottom: 22px;}
+      .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: #FFD200;
+        transition: 0.4s;}
+      .bar2, .bar3 {margin-top: 6px;}
+        /* Menu button image animation */
+        .change .bar1 {
+          transform: rotate(-45deg) translate(-9px, 6px);
+        }
+        .change .bar2 {opacity: 0;}
+        .change .bar3 {
+          transform: rotate(45deg) translate(-9px, -8px);
+}
+
+.page-content-wrapper {
+  margin: 20px 0;
+}
+
+/* Body Content Wrapper */
+.body-wrapper {
+  padding: 0% 5%; }
+  .body-wrapper h6 {
+    margin-bottom: 35px;
+    line-height: 1.38;
+}
+
+/* Columns */
+.columns {
+  overflow: auto;
+  width: 100%;
+  padding: 20px 0; }
+  .column {
+    float: left; }
+    .column .text-container {
+      margin: 0 5%; }
+    .column .text-container a {
+      margin: auto;
+      margin-top: 10px;
+      box-sizing: content-box;
+      padding: 10px 0;
+      height: 20px;
+      width: 180px;
+      display: block;
+      font-size: 20px;
+      letter-spacing: 0.1vw;
+    }
+    @media screen and (max-width: 748px) {
+      .column {
+        width: 100% !important; }
+        .column .text-container {
+          margin: 5% 5% !important; }
+}
+
+/* Images */
+  /* Inline images too wide for screen get shrunken */
+.inline-img-small {
+  margin: auto !important;
+  margin-bottom: 20px !important;
+  width: 100% !important;
+  height: auto !important;
+}
+  /* Image zoom effect on hover */
+a.img-hover-zoom {
+  overflow: hidden; }
+  a.img-hover-zoom:hover img {
+    -webkit-transform: scale(1.1);
+    -webkit-transition: all 0.3s ease-in-out;
+}
+  /* Images with color and/or text overlay */
+.img-with-overlay {
+  z-index: 1; }
+  .img-with-overlay > .overlay-txt {
+    width: 90%;
+    position: absolute;
+    z-index: 2; }
+  .img-with-overlay > .overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+/* Grid */
+.grid > a,
+.grid > div,
+.grid > img {
+  display: inline-block;
+  position: relative;
+}
+
+/* Horizontal Bar */
+.horizontal-bar {
+  height: 5px;
+  width: 100px;
+  margin: auto;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+/* Footer */
+  /* Column clickable links */
+.footer-column a {margin-block-start: 14px;}
+#footer-nav a:hover {color: #FFFFFF;}
+  /* Legislation column links */
+#footer-legis a {width: 25%;}
+
+  /* Change footer settings when viewport width <= 909px */
+@media screen and (min-width: 768px) and (max-width: 909px) {
+  #footer-legis {
+    width: 100% !important;
+  }
+  #footer-legis a {
+    width: 10% !important;
+  }
+  #footer-info, #footer-news, #footer-about {
+    width: calc(100%/3);
+  }
+}
+  /* Change footer settings when viewport width <= 767px */
+@media screen and (max-width: 767px) {
+  .footer-column {
+    width: 50% !important;
+  }
+  #footer-legis a {
+    width: calc(100%/3) !important;
+  }
+}
+  /* Change footer settings when viewport width <= 480px */
+@media screen and (max-width: 480px) {
+  .footer-column {
+    width: 100% !important;
+  }
+  .footer-disclaimer {
+    width: 300px;
+  }
+  .footer-disclaimer h5 {
+    font-size: 13px;
+  }
+}
+
+/* Mailing List Sign-Up Form */
+
+.at-inner {
+  background-color: #84152D !important;
+}
+
+.at-legend {
+  display: none;
+}
+
+header.at-title {
+  color: #FFD200 !important;
+}
+
+.at-form-submit .at-submit {
+  width: 97px !important;
+  float: none !important;
+}
+
+.poweredby {
+  font-size: 10px !important;
+  width: 140px !important;
+  height: 28px !important;
+  padding: 5px 10px !important;
+  margin: auto !important;
+}
+
+/* SPECIFIC OBJECTS */
+
+@media screen and (min-width: 910px){
+  /* Makes legislation navbar dropdown twice as wide */
+  #years {
+    width: 200%;
+  }
+  /* Legislation navbar button width 25% of total dropdown width */
+  #years .nav-btn-drop {
+    width: 25%;
+  }
+}
+
+
+
+/* HELPERS */
+  /* DIV WIDTH */
+.is-full-width {
+  width: 100%;
+}
+.is-half-width {
+  width: 50%;
+}
+.is-two-third-width {
+  width: calc(200%/3);
+}
+.is-one-third-width {
+  width: calc(100%/3);
+}
+.is-three-quarter-width {
+  width: 75%;
+}
+.is-one-quarter-width {
+  width: 25%;
+}
+.is-four-fifth-width {
+  width: 80%;
+}
+.is-three-fifth-width {
+  width: 60%;
+}
+.is-two-fifth-width {
+  width: 40%;
+}
+.is-one-fifth-width {
+  width: 20%;
+}
+.is-five-sixth-width {
+  width: calc(500%/6);
+}
+.is-one-sixth-width {
+  width: calc(100%/6);
+}
+  /* DIV ALIGN */
+.float-l {
+  float: left !important;
+}
+.float-c {
+  margin: auto !important;
+}
+.float-r {
+  float: right !important;
+}
+  /* DIV MARGINS */
+.mt-20 {
+  margin-top: 20px !important;
+}
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+  /* DIV PADDINGS */
+.pad-10 {
+  padding: 10px !important;
+}
+.pad-15 {
+  padding: 15px !important;
+}
+.pt-20 {
+  padding-top: 20px !important;
+}
+  /* DIV OVERFLOW */
+.overflow-auto {
+  overflow: auto !important;
+}
+  /* DIV DISPLAY */
+.display-ib {
+  display: inline-block !important;
+}
+  /* FONT WEIGHT/SIZE/HEIGHT */
+.wt-500 {
+  font-weight: 500 !important;
+}
+.wt-600 {
+  font-weight: 600 !important;
+}
+.wt-700 {
+  font-weight: 700 !important;
+}
+.wt-800 {
+  font-weight: 800 !important;
+}
+.wt-900 {
+  font-weight: 900 !important;
+}
+.font-50 {
+  font-size: 50px !important;
+}
+.upper {
+  text-transform: uppercase !important;
+}
+  /* COLOR */
+.bg-is-black {
+  background: #000000 !important;
+}
+.bg-is-dark-red {
+  background: #84152D !important;
+}
+.bg-is-yellow {
+  background: #FFD200 !important;
+}
+.font-is-black {
+  color: #000000 !important;
+}
+.font-is-dark-red {
+  color: #84152D !important;
+}
+.font-is-yellow {
+  color: #FFD200 !important;
+}
+.font-is-white {
+  color: #FFFFFF;
+}
